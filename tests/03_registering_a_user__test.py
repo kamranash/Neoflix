@@ -35,3 +35,4 @@ def test_register_user(app):
         assert "password" not in user
         assert user["userId"] is not None
         assert user["token"] is not None
+        print(user)

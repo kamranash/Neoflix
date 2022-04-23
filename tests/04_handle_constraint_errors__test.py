@@ -16,7 +16,8 @@ def before_all(app):
         driver = get_driver()
 
         def delete_user(tx):
-            return tx.run("MATCH (u:User {email: $email}) DETACH DELETE u", email=email).consume()
+            # return tx.run("MATCH (u:User {email: $email}) DETACH DELETE u", email=email).consume()
+            return tx.run("MATCH (u:User {name: $name}) DETACH DELETE u", name=name).consume()
 
         with driver.session() as session:
             session.write_transaction(delete_user)

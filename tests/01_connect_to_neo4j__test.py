@@ -3,10 +3,15 @@ from api.neo4j import close_driver, get_driver
 
 def test_env_vars():
     """Test that environment variables have been set"""
-
+    # print(os.environ)
+    for v in os.environ:
+        print(v + ' : ' + os.environ[v])
+    print(os.environ)
     assert "NEO4J_URI" in os.environ
     assert "NEO4J_USERNAME" in os.environ
     assert "NEO4J_PASSWORD" in os.environ
+    # assert "1bolt://44.204.2.150:7687" in os.environ['NEO4J_URI']
+
 
 
 def test_driver_initiated(app):
